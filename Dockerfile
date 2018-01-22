@@ -1,4 +1,4 @@
-FROM nvidia/cuda:9.1-base-ubuntu16.04
+FROM nvidia/cuda:8.0-runtime-ubuntu16.04
 
 # Install dependencies
 RUN apt-get update && \
