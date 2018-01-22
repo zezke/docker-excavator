@@ -10,4 +10,6 @@ RUN apt install ./excavator_1.3.9a-xenial0_amd64.deb
 
 COPY excavator.config /
 
-ENTRYPOINT excavator -c /excavator.config
+ARG WALLET=3KAKffgMS6JzNA5oa6C19zGXJgQbZxSFo6
+ENV WALLET $WALLET
+ENTRYPOINT sed -e "s/\${wallet}/$WALLET/" -e "s/\${hostname}/$HOSTNAME/" /excavator.config > /excavator.inst.config ; excavator -c /excavator.inst.config
